@@ -1,0 +1,121 @@
+[2026-03-18T07:55:09.975+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-03-18T07:55:09.990+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_dag.run_spark_job manual__2026-03-18T07:55:05.772842+00:00 [queued]>
+[2026-03-18T07:55:09.997+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_dag.run_spark_job manual__2026-03-18T07:55:05.772842+00:00 [queued]>
+[2026-03-18T07:55:09.998+0000] {taskinstance.py:2884} INFO - Starting attempt 1 of 1
+[2026-03-18T07:55:10.026+0000] {taskinstance.py:2907} INFO - Executing <Task(BashOperator): run_spark_job> on 2026-03-18 07:55:05.772842+00:00
+[2026-03-18T07:55:10.032+0000] {standard_task_runner.py:72} INFO - Started process 34516 to run task
+[2026-03-18T07:55:10.038+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'spark_dag', 'run_spark_job', 'manual__2026-03-18T07:55:05.772842+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/spark_dag.py', '--cfg-path', '/tmp/tmp7hwjgx3g']
+[2026-03-18T07:55:10.040+0000] {standard_task_runner.py:105} INFO - Job 30: Subtask run_spark_job
+[2026-03-18T07:55:10.135+0000] {task_command.py:467} INFO - Running <TaskInstance: spark_dag.run_spark_job manual__2026-03-18T07:55:05.772842+00:00 [running]> on host Komal.localdomain
+[2026-03-18T07:55:10.226+0000] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='spark_dag' AIRFLOW_CTX_TASK_ID='run_spark_job' AIRFLOW_CTX_EXECUTION_DATE='2026-03-18T07:55:05.772842+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-18T07:55:05.772842+00:00'
+[2026-03-18T07:55:10.228+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-03-18T07:55:10.229+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-03-18T07:55:10.229+0000] {logging_mixin.py:190} INFO - Current task name:run_spark_job state:running start_date:2026-03-18 07:55:09.991214+00:00
+[2026-03-18T07:55:10.229+0000] {logging_mixin.py:190} INFO - Dag name:spark_dag and current dag run status:running
+[2026-03-18T07:55:10.229+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2026-03-18T07:55:10.231+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-03-18T07:55:10.232+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '\n        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64\n        export SPARK_HOME=/home/komal/spark\n        export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$PATH\n\n        spark-submit --master local[*] /home/komal/data-engineering-projects/airflow-spark-pipeline/spark_jobs/sample_spark_job.py\n        ']
+[2026-03-18T07:55:10.239+0000] {subprocess.py:99} INFO - Output:
+[2026-03-18T07:55:12.207+0000] {subprocess.py:106} INFO - 26/03/18 07:55:12 WARN Utils: Your hostname, Komal resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+[2026-03-18T07:55:12.209+0000] {subprocess.py:106} INFO - 26/03/18 07:55:12 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2026-03-18T07:55:13.297+0000] {subprocess.py:106} INFO - Exception in thread "main" java.io.IOException: Cannot run program "": error=2, No such file or directory
+[2026-03-18T07:55:13.297+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+[2026-03-18T07:55:13.298+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+[2026-03-18T07:55:13.298+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.PythonRunner$.main(PythonRunner.scala:98)
+[2026-03-18T07:55:13.298+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.PythonRunner.main(PythonRunner.scala)
+[2026-03-18T07:55:13.298+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-03-18T07:55:13.298+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:1020)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:192)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:215)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2026-03-18T07:55:13.299+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1111)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1120)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - Caused by: java.io.IOException: error=2, No such file or directory
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:244)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+[2026-03-18T07:55:13.300+0000] {subprocess.py:106} INFO - 	... 15 more
+[2026-03-18T07:55:13.302+0000] {subprocess.py:106} INFO - 26/03/18 07:55:13 INFO ShutdownHookManager: Shutdown hook called
+[2026-03-18T07:55:13.304+0000] {subprocess.py:106} INFO - 26/03/18 07:55:13 INFO ShutdownHookManager: Deleting directory /tmp/spark-3498bf74-0542-445a-8aae-211412a901a6
+[2026-03-18T07:55:13.348+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-03-18T07:55:13.357+0000] {taskinstance.py:3336} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-18T07:55:13.363+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2026-03-18T07:55:13.363+0000] {logging_mixin.py:190} INFO - Task start:2026-03-18 07:55:09.991214+00:00 end:2026-03-18 07:55:13.362504+00:00 duration:3.37129
+[2026-03-18T07:55:13.363+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_spark_job> dag:<DAG: spark_dag> dagrun:<DagRun spark_dag @ 2026-03-18 07:55:05.772842+00:00: manual__2026-03-18T07:55:05.772842+00:00, state:running, queued_at: 2026-03-18 07:55:05.788860+00:00. externally triggered: True>
+[2026-03-18T07:55:13.364+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-18T07:55:13.364+0000] {taskinstance.py:1242} INFO - Marking task as FAILED. dag_id=spark_dag, task_id=run_spark_job, run_id=manual__2026-03-18T07:55:05.772842+00:00, execution_date=20260318T075505, start_date=20260318T075509, end_date=20260318T075513
+[2026-03-18T07:55:13.406+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-03-18T07:55:13.407+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 30 for task run_spark_job (Bash command failed. The command returned a non-zero exit code 1.; 34516)
+Traceback (most recent call last):
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3029, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 282, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3184, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3208, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/komal/data-engineering-projects/airflow-spark-pipeline/airflow_venv/lib/python3.11/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-18T07:55:13.425+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-03-18T07:55:13.442+0000] {taskinstance.py:3924} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-18T07:55:13.443+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
