@@ -42,3 +42,9 @@ Then trigger DAG from UI.
 * Integrated Spark with Airflow
 * Handled environment setup (Java, Spark)
 * Built end-to-end ETL pipeline
+
+## 🙋 Author
+
+Komal Kokate
+
+This project is for learning purposes only. Unauthorized commercial use is not allowed.
